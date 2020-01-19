@@ -13,72 +13,59 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script>WebFont.load({  google: {    families: ["Oswald:200,300,400,500,600,700","Droid Sans:400,700","Roboto:300,regular,500"]  }});</script>
   
   </head>
   <body>
 		
-		<div class="wrapper d-flex justify-content-center" style="width: 100vw">
-      <nav id="sidebar" style=" width: 20vw; background-color: #2d3e4e;">
-  
-                    <div class="p-4 pt-5">
-                  <a href="#" class="img logo rounded-circle mb-5 "  style="background-image: url(img\logoo.png) ; background-color: aqua;"></a>
-	        <ul class="list-unstyled components mb-5">
-	          <li class="active" style="text-align: center;">
-                    <a href="#">Home</a>
-	          </li>
-	          <li>
-	                <a href="#">About</a>
-	          </li>
-	          <li>
-                    <a href="#">OTHER Products</a>
-	          </li>
-	          <li>
-                    <a href="#">Contact</a>
-	          </li>
-          </ul>
-          <!--  -->
-          <div class="row profile">
-            <div class="col-md-3">
-              <div class="profile-sidebar">
-                <!-- SIDEBAR USERPIC -->
-                <div class="profile-userpic">
-                  <img src="img/logoo.png" style="width: 100px; height: 100px; " class="img-responsive" alt="">
-                </div>
-                <!-- END SIDEBAR USERPIC -->
-                <!-- SIDEBAR USER TITLE -->
-                <div class="profile-usertitle">
-                  <div class="profile-usertitle-name">
-                    Aditya
-                  </div>
-                  <div class="profile-usertitle-job">
-                    Oswal
-                  </div>
-                </div>
-                <!-- END SIDEBAR USER TITLE -->
-                <!-- SIDEBAR MENU -->
-                <div class="profile-usermenu">
-                  <ul class="nav">
-                    <li class="active"><a href="#"><i class="glyphicon glyphicon-home"></i>
-                      Home </a>
-                    </li>
-                    <li><a href="#"><i class="glyphicon glyphicon-user"></i>
-                      About US </a>
-                    </li>
-                    <li><a href="#" target="_blank"><i class="glyphicon glyphicon-ok"></i>
-                      Other Products</a>
-                    </li>
-                    <li><a href="#"><i class="glyphicon glyphicon-flag"></i>
-                      Contact US</a>
-                    </li>
-                  </ul>
-                </div>
-                <!-- END MENU -->
-              </div>
-            </div>
-          </div>
+    <div class="wrapper d-flex justify-content-center" style="width: 100vw">
+      <!-- 20vw -->
+      <nav id="sidebar" class="sidebar" style=" width: 20vw; background-color: #2d3e4e; padding: 4px; padding-top: 10px; color: white;">
+        
+         <div class="p-4 pt-5">
+                  <ul class="list-unstyled components mb-5" style="text-align: center;color: white; position: fixed; font-family: 'Oswald', sans-serif; ">
+                      <li>
+                        <a href="#">
+                          <div class="profile-userpic">
+                           <img src="img/logoo.png" style="width: 100px; height: 100px; align-content: center;" class="img-responsive" alt="">
+                          </div>
+                      </a>
+                      </li>
+                      <li class="active" style="text-align: center; padding-left:20px ; padding-top :20px;">
+                              <a href="#">Home</a>
+                      </li>
+                      <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
+                            <a href="#">About</a>
+                      </li>
+                      <li style="text-align: center; padding-left:20px ; padding-top :20px;color: white;">
+                              <a href="#">OTHER Products</a>
+                      </li>
+                      <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
+                              <a href="#">Contact</a>
+                      </li>
+                      <li style="text-align: center; padding-left:20px ; padding-top :20px;">
+                        <button type="button" class="btn btn-success">LOGIN</button>
+                      </li>
+                      <li style="text-align: center; padding-left:20px ; padding-top :20px;">
+                        <button type="button" class="btn btn-info">REGISTER</button>
+                      </li>
+              </ul>
 
-	        <div class="footer">
-                fooooter
+          <!--  -->
+          <div class="row profile" style="text-align: center; position:fixed;bottom:0;left:50px;right:0;height:30px;">
+            <div class="social-footer hidden-medium hidden-small w-hidden-tiny">
+              <a href="https://github.com/adityaoswal77" class="social-icon-link inline-block"><img src="img/social-03-white.svg" width="17" alt=""></a>
+              <a href="#" class="social-icon-link inline-block"><img src="img/social-18-white.svg" width="17" alt=""></a>
+              <a href="#" class="social-icon-link inline-block"><img src="img/social-30-white.svg" width="17" alt=""></a>
+              <a href="https://github.com/adityaoswal77" class="social-icon-link inline-block"><img src="img/social-14-white.svg" width="17" alt=""></a>
+              <a href="#" class="social-icon-link inline-block"><img src="img/social-12-white.svg" width="17" alt=""></a>
+              <a href="#" class="social-icon-link inline-block"><img src="img/social-08-white.svg" width="17" alt=""></a>
+              </div>
+          
+          </div>
+            <div class="footer">
+
             </div>
 
         </div>
@@ -95,7 +82,7 @@
                 <!-- SIDEBAR BUTTONS -->
                 <div class="profile-userbuttons">
                   <button type="button" class="btn btn-success btn-sm">Build My own PC</button>
-                  <button type="button" class="btn btn-danger btn-sm">Message</button>
+                  <button type="button" class="btn btn-danger btn-sm">Prebuilt</button>
                 </div>
                 <!-- END SIDEBAR BUTTONS -->
                 
@@ -103,65 +90,132 @@
           </div>
           <br>
        
-        <div>
+
           <div class="container" >
-          <h2 style="width: 80vw; font-family: 'Oswald', sans-serif;">WE ARE THE CUSTOM PC BUILDERS </h2>
-       
+                <h2 style="font-family: 'Oswald', sans-serif; text-align: center; padding-top: 40px; padding-right: 20px; ">WE ARE THE CUSTOM PC BUILDERS </h2>
+                <h4 style="font-size: medium; color: lightgray; text-align: center; padding: 40px;">We will build the PC of your dreams</h4>
 
-<!-- Card section -->
-<br>
-          <div class="card-deck">
-              <!-- CARD 1 -->
-            <div class="card">
-              <img class="card-img-top" src="img/Motherboard.png" style="align-self: center; width: 120px; height: 120px;" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">MOTHERBOARD</h5>
-                <p class="card-text">Gigabyte B450 Aorus Elite is one of the best B450 motherboards under $150 and an excellent choice for gaming. </p>
+      <!-- Card section -->
+      <br>
+                <div class="card-deck">
+                    <!-- CARD 1 -->
+                  <div class="card" style="border: 0px;">
+                    <img class="card-img-top" src="img/Motherboard.png" style="align-self: center; width: 110px; height: 110px;" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title" style="padding-top:40px ;">MOTHERBOARD</h5>
+                      <p class="card-text" >Gigabyte B450 Aorus Elite is one of the best B450 motherboards under $150 and an excellent choice for gaming. </p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">More Info</small>
+                    </div>
+                  </div>
+                  <div class="card" style="border: 0px;">
+                    <img class="card-img-top" src="img/cpu.png" style="align-self: center; width: 120px; height: 120px;" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">CPU</h5>
+                      <p class="card-text">A clock speed of 3.5 GHz to 4.0 GHz is generally considered a good clock speed for gaming but it's more important to have good single thread performance.</p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">More Info</small>
+                    </div>
+                  </div>
+                  <div class="card" style="border: 0px;">
+                    <img class="card-img-top" src="img/gpu.png" style="align-self: center; width: 120px; height: 120px;" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">GPU</h5>
+                      <p class="card-text">If you want to play games at max settings at 1920×1080, the Nvidia GeForce GTX 1660 Ti is hands down the best graphics card for the job right now.</p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">More Info</small>
+                    </div>
+                  </div>
+                  <div class="card" style="border: 0px;">
+                    <img class="card-img-top" src="img/ram.png" style="align-self: center; width: 150px; height: 150px;" alt="Card image cap">
+                    <div class="card-body">
+                      <h5 class="card-title">RAM</h5>
+                      <p class="card-text">HyperX Predator DDR4 memory was used to set a new overclocking world record for the fastest DDR4 memory frequency at 5608MHz.</p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">More Info</small>
+                    </div>
+                  </div>
+                </div>
+                <div style="padding-top:40px;">
+                <h2 class="mb-4 " style="font-family: 'Oswald', sans-serif; color: white;  background-color: #ce404c; border-radius: 5px; justify-content: center; text-align:left; padding-top: 40px; padding-right: 20px; padding-left: 40px; padding-bottom: 40px;">  READ IN DETAIL ABOUT DIFFERENT PC PARTS <button type="button"  class="btn btn-outline-secondary" style="border: 2px ; color: white; ">Read More...</button></h2>
+                
               </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="img/cpu.png" style="align-self: center; width: 150px; height: 150px;" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">CPU</h5>
-                <p class="card-text">A clock speed of 3.5 GHz to 4.0 GHz is generally considered a good clock speed for gaming but it's more important to have good single thread performance.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="img/gpu.png" style="align-self: center; width: 150px; height: 150px;" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">GPU</h5>
-                <p class="card-text">If you want to play games at max settings at 1920×1080, the Nvidia GeForce GTX 1660 Ti is hands down the best graphics card for the job right now.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
-            <div class="card">
-              <img class="card-img-top" src="img/ram.png" style="align-self: center; width: 150px; height: 150px;" alt="Card image cap">
-              <div class="card-body">
-                <h5 class="card-title">RAM</h5>
-                <p class="card-text">HyperX Predator DDR4 memory was used to set a new overclocking world record for the fastest DDR4 memory frequency at 5608MHz.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
-              </div>
-            </div>
+              <center>
+              <div class="form" style="width: 500px; height: auto; flex:auto;">
+                <h1>CONTACT US</h1>
+                <form action="#" method="post" accept-charset="utf-8">
+                      <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                                <input class="form-control" name="firstname" placeholder="Firstname" type="text" required autofocus />
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6" style="padding-bottom: 10px;">
+                                <input class="form-control" name="lastname" placeholder="Lastname" type="text" required />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 10px;">
+                                <input class="form-control" name="email" placeholder="E-mail" type="text" required />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <textarea style="resize:vertical;" class="form-control" placeholder="Message..." rows="6" name="comment" required></textarea>
+                            </div>
+                        </div>
+                    <div class="panel-footer" style="margin-bottom:-14px;">
+                        <input type="submit" class="btn btn-success" value="COntact"/>
+                          </div>
+                </form>
+
+               </div>
+              </center>
+                <!-- container end div -->
           </div>
-          <div>
-          <h2 class="mb-4">READ IN DETAIL ABOUT DIFFERENT PC PARTS <button type="button" class="btn btn-danger">Read More...</button></h2>
-          
-        </div>
-        </div>
+           <!-- 80vw closing tag -->
       </div>
-    </div>
-
-      
+      <!-- 100vw closing tag  -->
         </div>
+
+        <script>
+          $(document).ready(function(){
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+              // Make sure this.hash has a value before overriding default behavior
+              if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+          
+                // Store hash
+                var hash = this.hash;
+          
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                  scrollTop: $(hash).offset().top
+                }, 900, function(){
+             
+                  // Add hash (#) to URL when done scrolling (default click behavior)
+                  window.location.hash = hash;
+                });
+              } // End if
+            });
+            
+            $(window).scroll(function() {
+              $(".slideanim").each(function(){
+                var pos = $(this).offset().top;
+          
+                var winTop = $(window).scrollTop();
+                  if (pos < winTop + 600) {
+                    $(this).addClass("slide");
+                  }
+              });
+            });
+          })
+          </script>
+          
   </body>
 </html>
