@@ -1,4 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION["uid"]))
+{
+    header("location:index.php");
+}
 
+include("./connect.php");
+error_reporting(0);
+?>
 <head>
   	<title>cpu</title>
     <meta charset="utf-8">
@@ -19,8 +28,6 @@
 
 <body>
 <?php
-
-session_start();
 include('db.php');
 $status="";
 if (isset($_POST['code']) && $_POST['code']!=""){
@@ -100,5 +107,8 @@ mysqli_close($con);
 
 <br />
 </div>
+<div class="ref">
+        <button type="button" class="btn btn-danger btn-sm"><a href="gpu.php"> NEXT</a></button>
+      </div>
 </body>
 </html>

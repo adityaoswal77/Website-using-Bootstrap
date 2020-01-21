@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION["uid"]))
+{
+    header("location:index.php");
+}
+
+include("./connect.php");
+error_reporting(0);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

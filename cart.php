@@ -1,3 +1,14 @@
+<?php
+session_start();
+if(isset($_SESSION["uid"]))
+{
+    //header("location:index.php");
+}
+else{
+    header("location:login.php");
+}
+include("./connect.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,27 +44,23 @@
 
         <div class="col-lg-10">
             <div class="container-fluid" > 
-              
-            <?php
+            
 
-session_start();
+<?php
+
 $status="";
-if (isset($_POST['action']) && $_POST['action']=="remove")
-{
-    if(!empty($_SESSION["shopping_cart"])) 
-    {
-          foreach($_SESSION["shopping_cart"] as $key => $value) 
-          {
-            if($_POST["code"] == $key)
-              {
-                  unset($_SESSION["shopping_cart"][$key]);
-                  $status = "<div class='box' style='color:red;'>
-                  Product is removed from your cart!</div>";
-              }
-            if(empty($_SESSION["shopping_cart"]))
-            unset($_SESSION["shopping_cart"]);
-            }		
-     }
+if (isset($_POST['action']) && $_POST['action']=="remove"){
+if(!empty($_SESSION["shopping_cart"])) {
+	foreach($_SESSION["shopping_cart"] as $key => $value) {
+		if($_POST["code"] == $key){
+		unset($_SESSION["shopping_cart"][$key]);
+		$status = "<div class='box' style='color:red;'>
+		Product is removed from your cart!</div>";
+		}
+		if(empty($_SESSION["shopping_cart"]))
+		unset($_SESSION["shopping_cart"]);
+			}		
+		}
 }
 
 if (isset($_POST['action']) && $_POST['action']=="change"){
@@ -155,6 +162,11 @@ $total_price += ($product["price"]);
 <?php echo $status; ?>
 </div>
 
+
+ <br /><br />
+<!--<a href="https://www.allphptricks.com/simple-shopping-cart-using-php-and-mysql/"><strong>Tutorial Link</strong></a> <br /><br />
+For More Web Development Tutorials Visit: <a href="https://www.allphptricks.com/"><strong>AllPHPTricks.com</strong></a> -->
+</div>
 
  <br />
 </div>

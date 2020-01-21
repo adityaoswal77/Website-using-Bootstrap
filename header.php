@@ -1,4 +1,14 @@
 <?php
+session_start();
+if(isset($_SESSION["uid"]))
+{
+    header("location:index.php");
+}
+
+include("./connect.php");
+error_reporting(0);
+?>
+<?php
 $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 ?>
 <!DOCTYPE html>

@@ -4,14 +4,9 @@ if(isset($_SESSION["uid"]))
 {
     header("location:index.php");
 }
-else{
-    //header("location:login.php");
-}
+
 include("./connect.php");
-?>
-<?php
 error_reporting(0);
-include ('./connect.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -181,7 +176,7 @@ if (isset($_POST["login"]))
             echo "id=".$id;
             session_start();
             $_SESSION["uid"]=$id;
-            header("location:index.html");
+            header("location:home.php");
         }
 }
 else {

@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(isset($_SESSION["uid"]))
+{
+    header("location:index.php");
+}
+
+include("./connect.php");
+error_reporting(0);
+?>
 <head>
   	<title>call into cards</title>
     <meta charset="utf-8">
@@ -99,5 +109,9 @@ mysqli_close($con);
 
 <br />
 </div>
+<div class="ref">
+        <button type="button" class="btn btn-danger btn-sm"><a href="checkout.php"> Check out</a></button>
+</div>
+
 </body>
 </html>
