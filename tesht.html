@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>tabs</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+   
+    <!-- our custom CSS -->
+    <link rel="stylesheet" href="libs/css/custom.css" />
+<body>
+    <script>
+	// BS tabs hover (instead - hover write - click)
+	$('.tab-menu a').click(function (e) {
+	  e.preventDefault()
+	  $(this).tab('show')
+	})
+    </script>
+    <section class="blok" style="margin: 30px;">
+        <h2>Heh</h2>
+        <div class="blok-body">
+            <div class="row">
+              <!-- Nav tabs -->
+              <ul class="nav tab-menu nav-pills col-sm-4 nav-stacked pr15">
+                <li class="active"  data-toggle="tab"><a href="#home">Statistics</a></li>
+                <li><a href="#profile"  data-toggle="tab"> Prezentation</a></li>
+                <li><a href="#messages"  data-toggle="tab">Student life</a></li>
+                <li><a href="#settings"  data-toggle="tab">Something new</a></li>
+              </ul>
+              <!-- Tab panes -->
+              <div class="tab-content col-sm-8">
+                <div class="tab-pane well active in active" id="home"> 
+            1 ... tpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed lore magna aliguam erat volutpat.
+                </div>
+                <div class="tab-pane well fade" id="profile"> 
+            2 ... eet dolore magna aliguam erat volutpat. Lorem ipset dolore magna aliguam erat volutpat. </div>
+                <div class="tab-pane well fade" id="messages">
+            3 ...sectetuer adipiscing elit, sed diem nonummy nibh euismod tincidunt ut lacrut lacreet dolore magna aliguam erat volutpat. </div>
+                <div class="tab-pane well fade" id="settings">
+            4 .. Lorem ipsum dolor sit amet, consectetuer adt volutpat. t, consectetue erat volutpat. </div>
+              </div>
+            </div><!-- //row -->
+            </div><!-- blok-body // -->
+        </section><!-- // blok -->
+</body>
+</html>
