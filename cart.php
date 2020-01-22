@@ -2,12 +2,11 @@
 session_start();
 if(isset($_SESSION["uid"]))
 {
-    //header("location:index.php");
+    header("location:index.php");
 }
-else{
-    header("location:login.php");
-}
+
 include("./connect.php");
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,9 +36,53 @@ include("./connect.php");
           <div class="col-lg-2" style="background-color: #2d3e4e;" >
                             <!-- sidebar -->
                     <!-- calling sidebar here -->
-                    <?php
-                    include("sidebar_home.html");
-                    ?>
+                    <div class="bleh">
+          <ul class="list-unstyled components mb-5" style="background-color: #2d3e4e; text-align: center;color: white; position: fixed; font-family: 'Oswald', sans-serif; ">
+            <li>
+              <a href="home.php">
+                <div class="profile-userpic">
+                  <img src="img/logoo.png" style="width: 100px; height: 100px; align-content: center;" class="img-responsive" alt="">
+                   
+                </div>
+            </a>
+            </li>
+            <li class="active" style="text-align: center; padding-left:20px ; padding-top :20px;">
+                    <a href="#">Home</a>
+            </li>
+            <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
+                  <a href="#">About</a>
+            </li>
+            <li style="text-align: center; padding-left:20px ; padding-top :20px;color: white;">
+                    <a href="#">OTHER Products</a>
+            </li>
+            <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
+                    <a href="#">Contact</a>
+            </li>
+            <li style="text-align: center; padding-left:20px ; padding-top :20px;" ><a href="login.php">
+						<button type="button" class="btn btn-outline-danger">LOGOUT</button>
+						</a> </li>
+						<li style="text-align: center; padding-left:20px ; padding-top :20px;"><a href="cart.php">
+            <button type="button" class="btn btn-info">CART</button>
+            </a></li>
+    </ul>
+     
+          <!--  -->
+          <div class="row profile" style="text-align: center; position:fixed;bottom:0;left:50px;right:0;height:30px;">
+            <div class="social-footer hidden-medium hidden-small w-hidden-tiny">
+              <a href="https://github.com/adityaoswal77" class="social-icon-link inline-block"><img src="img/social-03-white.svg" width="17" alt=""></a>
+              <a href="#" class="social-icon-link inline-block"><img src="img/social-18-white.svg" width="17" alt=""></a>
+              <a href="#" class="social-icon-link inline-block"><img src="img/social-30-white.svg" width="17" alt=""></a>
+              <a href="https://github.com/adityaoswal77" class="social-icon-link inline-block"><img src="img/social-14-white.svg" width="17" alt=""></a>
+              <a href="#" class="social-icon-link inline-block"><img src="img/social-12-white.svg" width="17" alt=""></a>
+              <a href="#" class="social-icon-link inline-block"><img src="img/social-08-white.svg" width="17" alt=""></a>
+              </div>
+          
+          </div>
+            <div class="footer">
+
+            </div>
+        
+      </div>
           </div>
 
         <div class="col-lg-10">
@@ -114,29 +157,29 @@ if(isset($_SESSION["shopping_cart"])){
 foreach ($_SESSION["shopping_cart"] as $product){
 ?>
 <tr>
-<td><img src='<?php echo $product["image"]; ?>' width="50" height="40" /></td>
-<td><?php echo $product["name"]; ?><br />
-<form method='post' action=''>
-<input type='hidden' name='code' value="<?php echo $product["code"]; ?>" />
-<input type='hidden' name='action' value="remove" />
-<button type='submit' class='remove'>Remove Item</button>
-</form>
-</td>
-<td>
-<form method='post' action=''>
-<input type='hidden' name='code' value="<?php echo $product["code"]; ?>" />
-<input type='hidden' name='action' value="change" />
-<select name='quantity' class='quantity' onchange="this.form.submit()">
-<option <?php if($product["quantity"]==1) echo "selected";?> value="1">1</option>
-<option <?php if($product["quantity"]==2) echo "selected";?> value="2">2</option>
-<option <?php if($product["quantity"]==3) echo "selected";?> value="3">3</option>
-<option <?php if($product["quantity"]==4) echo "selected";?> value="4">4</option>
-<option <?php if($product["quantity"]==5) echo "selected";?> value="5">5</option>
-</select>
-</form>
-</td>
-<td><?php echo "$".$product["price"]; ?></td>
-<td><?php echo "$".$product["price"]; ?></td>
+    <td><img src='<?php echo $product["image"]; ?>' width="50" height="40" /></td>
+    <td><?php echo $product["name"]; ?><br />
+    <form method='post' action=''>
+    <input type='hidden' name='code' value="<?php echo $product["code"]; ?>" />
+    <input type='hidden' name='action' value="remove" />
+    <button type='submit' class='remove'>Remove Item</button>
+    </form>
+    </td>
+    <td>
+    <form method='post' action=''>
+    <input type='hidden' name='code' value="<?php echo $product["code"]; ?>" />
+    <input type='hidden' name='action' value="change" />
+    <select name='quantity' class='quantity' onchange="this.form.submit()">
+    <option <?php if($product["quantity"]==1) echo "selected";?> value="1">1</option>
+    <option <?php if($product["quantity"]==2) echo "selected";?> value="2">2</option>
+    <option <?php if($product["quantity"]==3) echo "selected";?> value="3">3</option>
+    <option <?php if($product["quantity"]==4) echo "selected";?> value="4">4</option>
+    <option <?php if($product["quantity"]==5) echo "selected";?> value="5">5</option>
+    </select>
+    </form>
+    </td>
+    <td><?php echo "$".$product["price"]; ?></td>
+    <td><?php echo "$".$product["price"]; ?></td>
 </tr>
 <?php
 $total_price += ($product["price"]);

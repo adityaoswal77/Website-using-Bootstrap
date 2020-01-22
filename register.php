@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION["uid"]))
 {
-    header("location:index.php");
+    header("location:login.php");
 }
 else{
     //header("location:login.php");
@@ -212,12 +212,13 @@ if($name!="" && $email!="" && $phone!="" && $pass!="")
         $run = mysqli_query($conn,$query);
         
             if ($run)
-            {?>
-                <script>
-                alert(" Welcome" );
-                echo "You have been successfully Registered";
-                </script>
-            <?php
+                {
+                    ?>
+                    <script>
+                    alert(" Welcome" );
+                    echo "You have been successfully Registered";
+                    </script>
+                <?php
             }
     }
 

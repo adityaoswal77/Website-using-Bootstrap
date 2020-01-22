@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION["uid"]))
 {
-    header("location:home.php");
+    header("location:index.php");
 }
 
 include("./connect.php");
@@ -14,13 +14,11 @@ error_reporting(0);
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">    
-<title>login_screen</title>
+<title>Home</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> 
@@ -30,14 +28,51 @@ error_reporting(0);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-<div class="row" style="width: 100vw; height: 100vh;" >
-          <div class="col-lg-2" style="background-color: #2d3e4e;" >
-                            <!-- sidebar -->
-                    <!-- calling sidebar here -->
-                    <div class="row" style="width: 100vw; height: 100vh;" >
+<?php
+
+session_start();
+include('db.php');
+$status="";
+if (isset($_POST['code']) && $_POST['code']!=""){
+$code = $_POST['code'];
+$result = mysqli_query($con,"SELECT * FROM `item` WHERE `code`='$code'");
+$row = mysqli_fetch_assoc($result);
+$name = $row['item_name'];
+$code = $row['code'];
+$price = $row['item_price'];
+$image = $row['image'];
+
+$cartArray = array(
+	$code=>array(
+	'name'=>$name,
+	'code'=>$code,
+	'price'=>$price,
+	'quantity'=>1,
+	'image'=>$image)
+);
+
+if(empty($_SESSION["shopping_cart"])) {
+	$_SESSION["shopping_cart"] = $cartArray;
+	$status = "<div class='box'>Product is added to your cart!</div>";
+}else{
+	$array_keys = array_keys($_SESSION["shopping_cart"]);
+	if(in_array($code,$array_keys)) {
+		$status = "<div class='box' style='color:red;'>
+		Product is already added to your cart!</div>";	
+	} else {
+	$_SESSION["shopping_cart"] = array_merge($_SESSION["shopping_cart"],$cartArray);
+	$status = "<div class='box'>Product is added to your cart!</div>";
+	}
+
+	}
+}
+?>
+
+
+        <div class="row" style="width: 100vw; height: 100vh;" >
           <div class="col-lg-2" style="background-color: #2d3e4e;" >
                             <!-- sidebar -->
                     <!-- calling sidebar here -->
@@ -62,9 +97,11 @@ error_reporting(0);
             <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
                     <a href="#">Contact</a>
             </li>
-
+            <li style="text-align: center; padding-left:20px ; padding-top :20px;" ><a href="login.php">
+              <button type="button" class="btn btn-outline-danger">LOGOUT</button>
+            </a> </li>
             <li style="text-align: center; padding-left:20px ; padding-top :20px;"><a href="register.php">
-              <button type="button" class="btn btn-info">SUBSCRIBE</button>
+              <button type="button" class="btn btn-info">REGISTER</button>
             </a></li>
     </ul>
      
@@ -88,151 +125,22 @@ error_reporting(0);
           
         
         </div>
+
         <div class="col-lg-10">
             <div class="container-fluid" > 
-<center>
-<div class="box">
-    <h1>Login</h1>
-        <form name="Login"  action="login.php" onsubmit="return validate(this) " method="Post">
-    <div class="textbox">
-        <input type="Email" class="txt" placeholder="Email" name="mail" value="" required>
+              
+              <?php
+                   include("home_content.html")
+              ?>
+          </div>
+
+          <div class="w-100">
+
+        </div>
     </div>
-    <div class="textbox">
-        <input type="Password" class= "txt" placeholder="Password" name="pass" value="" required>
-    </div>
-    <button  type="button" class= "login" type="submit" name="login" id="popup" value="Sign In"><a href="after_login.php">LOGIN</a> </button>
-                          
-    <input class= "login" type="submit" name="login" id="popup" value="Sign In">
-    <br>
-
-    <li style="text-align: center; padding-left:20px ; padding-top :20px;">
-        <a href="register.php">
-              <button type="button" class="btn btn-info">REGISTER</button>
-            </a>
-</li>
-    </div>
-</form>
-
-<style>
-
-.container{
-    background-color : white;
-    box-shadow : 1px 1px 1px 1px grey;
-    padding : 10px 8px 20px 30px;
-    width : 40% ;
-    height : 85% ;
-    margin-left: 35%;
-
-}
-.txt{
-    width : 20%;
-    height : 3%;
-    border: 1px solid black;
-    border-radius : 5px;
-    padding: 20px 15px 20px 15px;
-    margin: 5px 0px 15px 0px;
-}
-
-.login{
-    width : 20%;
-    height : 3%;
-    border: 1px solid blue;
-    border-radius : 5px;
-    padding: 20px 15px 20px 15px;
-    margin: 5px 0px 15px 0px;
-}
-
-#popup{
-    width : 20%;
-    height : 3%;
-    border: 1px solid brown;
-    border-radius : 5px;
-    padding: 20px 15px 20px 15px;
-    margin: 5px 0px 15px 0px;
-}
-
-#popup:hover{
-    background-color: green;
-}
-
-</style>
-
-
-
-<script>
-function validate(this_form)
-{
-var password = this_form.pass.value;
-var regex_password = /^[a-zA-Z0-9!@#$%^&*]{6,16}$/;
-errors = [];
-if (password.length < 8) 
-{
-errors.push("Your password must be at least 8 characters");
-}
-if (password.search(/[a-z]/i) < 0) 
-{
-errors.push("Your password must contain at least one letter.");
-}
-if (password.search(/[0-9]/) < 0) {
-errors.push("Your password must contain at least one digit.");
-}
-if (password.search(/[!@#$%^&*]/) < 0) {
-errors.push("Your password must contain at least one charactor.");
-}
-if (errors.length > 0) {
-alert(errors.join("\n"));
-return false;
-}
-return true;
-}
-
-</script>
-</center>
-
-<div class="w-100">
-
-</div>
-</div>
-</div>
+  </div>
 
 </body>
 </html>
 <?php
-include("connect.php");
-if (isset($_POST["login"]))
-{
-    $username=$_POST["mail"];
-    echo $username;
-    $password =$_POST["pass"];
-    echo $password;
-    $query="SELECT * FROM `user` WHERE `email`= '$username' AND `password`= '$password'";
-    echo $query;
-    $run = mysqli_query($conn,$query);
-
-    
-    //$data= mysqli_fetch_assoc($run);
-    $row = mysqli_num_rows($run);
-
-    if($row<1)
-    {
-        ?>
-        <script>
-        alert("Wrong email or Password."<br>" please try again");
-        </script>
-        <?php
-    }
-    else
-        {
-            $data= mysqli_fetch_assoc($run);
-            $id=$data["user_id"];
-            echo "id=".$id;
-            session_start();
-            $_SESSION["uid"]=$id;
-            header("location:home.php");
-        }
-}
-else {
-    //header("location:register.php");
-}
 ?>
-
