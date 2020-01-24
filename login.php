@@ -1,12 +1,11 @@
 <?php
 session_start();
-if(isset($_SESSION["uid"]))
-{
-    header("location:home.php");
+if(isset($_SESSION['uid'])){
+	header('location:after_login.php');
 }
-
-include("./connect.php");
-error_reporting(0);
+else{
+	//header('location:login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,6 +92,7 @@ error_reporting(0);
 <center>
 <div class="box">
     <h1>Login</h1>
+    <h1>Login</h1>
         <form name="Login"  action="login.php" onsubmit="return validate(this) " method="Post">
     <div class="textbox">
         <input type="Email" class="txt" placeholder="Email" name="mail" value="" required>
@@ -100,16 +100,9 @@ error_reporting(0);
     <div class="textbox">
         <input type="Password" class= "txt" placeholder="Password" name="pass" value="" required>
     </div>
-    <button  type="button" class= "login" type="submit" name="login" id="popup" value="Sign In"><a href="after_login.php">LOGIN</a> </button>
-                          
     <input class= "login" type="submit" name="login" id="popup" value="Sign In">
     <br>
-
-    <li style="text-align: center; padding-left:20px ; padding-top :20px;">
-        <a href="register.php">
-              <button type="button" class="btn btn-info">REGISTER</button>
-            </a>
-</li>
+    <a href="./register.php"><h4>Not have an Account?</h4> Register</a>
     </div>
 </form>
 
@@ -228,11 +221,11 @@ if (isset($_POST["login"]))
             echo "id=".$id;
             session_start();
             $_SESSION["uid"]=$id;
-            header("location:home.php");
+            header("location:after_login.php");
         }
-}
+}   
 else {
-    //header("location:register.php");
+    header("location:index.php");
 }
 ?>
 

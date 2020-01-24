@@ -1,22 +1,21 @@
 <?php
 session_start();
-if(isset($_SESSION["uid"]))
-{
-    header("location:index.php");
+if(isset($_SESSION['uid'])){
+	//header('location:after_login.php');
 }
-
-include("./connect.php");
+else{
+	header('location:login.php');
+}
 error_reporting(0);
 ?>
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=\, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">    
-<title>Home</title>
+          <title>Home</title>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/style.css">
     <!-- Bootstrap CSS -->
@@ -33,41 +32,49 @@ error_reporting(0);
 <body>
 <?php
 
-session_start();
+
 include('db.php');
 $status="";
-if (isset($_POST['code']) && $_POST['code']!=""){
-$code = $_POST['code'];
-$result = mysqli_query($con,"SELECT * FROM `item` WHERE `code`='$code'");
-$row = mysqli_fetch_assoc($result);
-$name = $row['item_name'];
-$code = $row['code'];
-$price = $row['item_price'];
-$image = $row['image'];
+if (isset($_POST['code']) && $_POST['code']!="")
+{
+    $code = $_POST['code'];
+    $result = mysqli_query($con,"SELECT * FROM `item` WHERE `code`='$code'");
+    $row = mysqli_fetch_assoc($result);
+    $name = $row['item_name'];
+    $code = $row['code'];
+    $price = $row['item_price'];
+    $image = $row['image'];
 
-$cartArray = array(
-	$code=>array(
-	'name'=>$name,
-	'code'=>$code,
-	'price'=>$price,
-	'quantity'=>1,
-	'image'=>$image)
-);
+    $cartArray = array
+          (
+            $code=>array(
+            'name'=>$name,
+            'code'=>$code,
+            'price'=>$price,
+            'quantity'=>1,
+            'image'=>$image)
+          );
 
-if(empty($_SESSION["shopping_cart"])) {
-	$_SESSION["shopping_cart"] = $cartArray;
-	$status = "<div class='box'>Product is added to your cart!</div>";
-}else{
-	$array_keys = array_keys($_SESSION["shopping_cart"]);
-	if(in_array($code,$array_keys)) {
-		$status = "<div class='box' style='color:red;'>
-		Product is already added to your cart!</div>";	
-	} else {
-	$_SESSION["shopping_cart"] = array_merge($_SESSION["shopping_cart"],$cartArray);
-	$status = "<div class='box'>Product is added to your cart!</div>";
-	}
+    if(empty($_SESSION["shopping_cart"])) 
+    {
+          $_SESSION["shopping_cart"] = $cartArray;
+          $status = "<div class='box'>Product is added to your cart!</div>";
+    }
+    else
+    {
+      $array_keys = array_keys($_SESSION["shopping_cart"]);
+      if(in_array($code,$array_keys)) 
+      {
+        $status = "<div class='box' style='color:red;'>
+        Product is already added to your cart!</div>";	
+      }
+      else 
+      {
+          $_SESSION["shopping_cart"] = array_merge($_SESSION["shopping_cart"],$cartArray);
+          $status = "<div class='box'>Product is added to your cart!</div>";
+      }
 
-	}
+  	}
 }
 ?>
 

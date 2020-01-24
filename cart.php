@@ -39,32 +39,32 @@ error_reporting(0);
                     <div class="bleh">
           <ul class="list-unstyled components mb-5" style="background-color: #2d3e4e; text-align: center;color: white; position: fixed; font-family: 'Oswald', sans-serif; ">
             <li>
-              <a href="home.php">
+              <a href="index.php">
                 <div class="profile-userpic">
                   <img src="img/logoo.png" style="width: 100px; height: 100px; align-content: center;" class="img-responsive" alt="">
                    
                 </div>
-            </a>
-            </li>
-            <li class="active" style="text-align: center; padding-left:20px ; padding-top :20px;">
-                    <a href="#">Home</a>
-            </li>
-            <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
-                  <a href="#">About</a>
-            </li>
-            <li style="text-align: center; padding-left:20px ; padding-top :20px;color: white;">
-                    <a href="#">OTHER Products</a>
-            </li>
-            <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
-                    <a href="#">Contact</a>
-            </li>
-            <li style="text-align: center; padding-left:20px ; padding-top :20px;" ><a href="login.php">
-						<button type="button" class="btn btn-outline-danger">LOGOUT</button>
-						</a> </li>
-						<li style="text-align: center; padding-left:20px ; padding-top :20px;"><a href="cart.php">
-            <button type="button" class="btn btn-info">CART</button>
-            </a></li>
-    </ul>
+              </a>
+              </li>
+              <li class="active" style="text-align: center; padding-left:20px ; padding-top :20px;">
+                      <a href="#">Home</a>
+              </li>
+              <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
+                    <a href="#">About</a>
+              </li>
+              <li style="text-align: center; padding-left:20px ; padding-top :20px;color: white;">
+                      <a href="#">OTHER Products</a>
+              </li>
+              <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
+                      <a href="#">Contact</a>
+              </li>
+              <li style="text-align: center; padding-left:20px ; padding-top :20px;" ><a href="login.php">
+              <button type="button" class="btn btn-outline-danger">LOGOUT</button>
+              </a> </li>
+              <li style="text-align: center; padding-left:20px ; padding-top :20px;"><a href="cart.php">
+              <button type="button" class="btn btn-info">CART</button>
+              </a></li>
+            </ul>
      
           <!--  -->
           <div class="row profile" style="text-align: center; position:fixed;bottom:0;left:50px;right:0;height:30px;">
@@ -77,33 +77,34 @@ error_reporting(0);
               <a href="#" class="social-icon-link inline-block"><img src="img/social-08-white.svg" width="17" alt=""></a>
               </div>
           
+          
           </div>
-            <div class="footer">
-
-            </div>
-        
+        </div>
       </div>
-          </div>
 
-        <div class="col-lg-10">
+      <div class="col-lg-10">
             <div class="container-fluid" > 
             
 
 <?php
 
 $status="";
-if (isset($_POST['action']) && $_POST['action']=="remove"){
-if(!empty($_SESSION["shopping_cart"])) {
-	foreach($_SESSION["shopping_cart"] as $key => $value) {
-		if($_POST["code"] == $key){
-		unset($_SESSION["shopping_cart"][$key]);
-		$status = "<div class='box' style='color:red;'>
-		Product is removed from your cart!</div>";
-		}
-		if(empty($_SESSION["shopping_cart"]))
-		unset($_SESSION["shopping_cart"]);
-			}		
-		}
+if (isset($_POST['action']) && $_POST['action']=="remove")
+{
+    if(!empty($_SESSION["shopping_cart"])) 
+    {
+        foreach($_SESSION["shopping_cart"] as $key => $value) 
+        {
+          if($_POST["code"] == $key)
+          {
+              unset($_SESSION["shopping_cart"][$key]);
+              $status = "<div class='box' style='color:red;'>
+              Product is removed from your cart!</div>";
+          }
+              if(empty($_SESSION["shopping_cart"]))
+              unset($_SESSION["shopping_cart"]);
+        }		
+    }
 }
 
 if (isset($_POST['action']) && $_POST['action']=="change"){
