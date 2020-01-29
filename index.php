@@ -100,8 +100,11 @@
       </a>
       <a class="active" href="#home">Home</a>
       <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
+      <a href="#contact">About</a>
+      <a href="#about">Contact</a>
+      <a href="login.php"><button type="button" class="btn btn-outline-success">Login</button></a> 
+      <a href="register.php"><button type="button" class="btn btn-info">Register</button></a>
+  
       
 </div>
           

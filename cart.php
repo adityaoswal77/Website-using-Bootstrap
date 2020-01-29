@@ -58,7 +58,7 @@ error_reporting(0);
               <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
                       <a href="#">Contact</a>
               </li>
-              <li style="text-align: center; padding-left:20px ; padding-top :20px;" ><a href="login.php">
+              <li style="text-align: center; padding-left:20px ; padding-top :20px;" ><a href="logout.php">
               <button type="button" class="btn btn-outline-danger">LOGOUT</button>
               </a> </li>
               <li style="text-align: center; padding-left:20px ; padding-top :20px;"><a href="cart.php">

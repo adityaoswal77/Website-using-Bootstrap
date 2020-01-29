@@ -41,48 +41,9 @@ else{
                             <!-- sidebar -->
                     <!-- calling sidebar here -->
                     <div class="bleh">
-          <ul class="list-unstyled components mb-5" style="background-color: #2d3e4e; text-align: center;color: white; position: fixed; font-family: 'Oswald', sans-serif; ">
-            <li>
-              <a href="#">
-                <div class="profile-userpic">
-                 <img src="img/logoo.png" style="width: 100px; height: 100px; align-content: center;" class="img-responsive" alt="">
-                </div>
-            </a>
-            </li>
-            <li class="active" style="text-align: center; padding-left:20px ; padding-top :20px;">
-                    <a href="#">Home</a>
-            </li>
-            <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
-                  <a href="#">About</a>
-            </li>
-            <li style="text-align: center; padding-left:20px ; padding-top :20px;color: white;">
-                    <a href="#">OTHER Products</a>
-            </li>
-            <li style="text-align: center; padding-left:20px ; padding-top :20px; color: white;">
-                    <a href="#">Contact</a>
-            </li>
-
-            <li style="text-align: center; padding-left:20px ; padding-top :20px;"><a href="register.php">
-              <button type="button" class="btn btn-info">SUBSCRIBE</button>
-            </a></li>
-    </ul>
-     
-          <!--  -->
-          <div class="row profile" style="text-align: center; position:fixed;bottom:0;left:50px;right:0;height:30px;">
-            <div class="social-footer hidden-medium hidden-small w-hidden-tiny">
-              <a href="https://github.com/adityaoswal77" class="social-icon-link inline-block"><img src="img/social-03-white.svg" width="17" alt=""></a>
-              <a href="#" class="social-icon-link inline-block"><img src="img/social-18-white.svg" width="17" alt=""></a>
-              <a href="#" class="social-icon-link inline-block"><img src="img/social-30-white.svg" width="17" alt=""></a>
-              <a href="https://github.com/adityaoswal77" class="social-icon-link inline-block"><img src="img/social-14-white.svg" width="17" alt=""></a>
-              <a href="#" class="social-icon-link inline-block"><img src="img/social-12-white.svg" width="17" alt=""></a>
-              <a href="#" class="social-icon-link inline-block"><img src="img/social-08-white.svg" width="17" alt=""></a>
-              </div>
-          
-          </div>
-            <div class="footer">
-
-            </div>
-        
+        <?php
+        include("sidebar_home.html")
+        ?>
       </div>
           
         

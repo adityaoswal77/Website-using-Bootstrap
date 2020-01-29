@@ -102,6 +102,8 @@
       <a href="#news">News</a>
       <a href="#contact">Contact</a>
       <a href="#about">About</a>
+      <a href="logout.php"><button type="button" class="btn btn-outline-danger">LOGOUT</button></a> 
+      <a href="cart.php"><button type="button" class="btn btn-info">CART</button></a>
       
 </div>
           
