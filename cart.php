@@ -2,10 +2,13 @@
 session_start();
 if(isset($_SESSION["uid"]))
 {
-    header("location:index.php");
+    //header("location:index.php");
+}
+else {
+  header("login.php");
 }
 
-include("./connect.php");
+include("db.php");
 error_reporting(0);
 ?>
 <!DOCTYPE html>

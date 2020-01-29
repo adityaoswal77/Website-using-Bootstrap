@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['uid'])){
-	header('location:after_login.php');
+	//header('location:after_login.php');
 }
 else{
 	header('location:login.php');
@@ -43,7 +43,7 @@ error_reporting(0);
 					<a href="after_login.php">About Us</a>
 					<a href="after_login.php">Other Products</a>
 					<a href="after_login.php">Contact</a>
-					<a href="login.php"><button type="button" class="btn btn-outline-danger">LOGOUT</button></a>
+					<a href="logout.php"><button type="button" class="btn btn-outline-danger">LOGOUT</button></a>
 					<a href="cart.php"><button type="button" class="btn btn-info">CART</button></a>		
 					</div>
           
@@ -58,7 +58,7 @@ include("social_links.html")
             <div class="container-fluid" > 
               
 			<?php
-include('connect.php');
+include('db.php');
 $status="";
 if (isset($_POST['code']) && $_POST['code']!="")
 {
@@ -109,7 +109,7 @@ if (isset($_POST['code']) && $_POST['code']!="")
 
 <h2>Choose your SSD</h2>   
 <div class="ref">
-        <button type="button" class="btn btn-warning btn-lg"><a href="gpu.php"> NEXT</a></button>
+        <button type="button" class="btn btn-warning btn-lg"><a href="cart.php"> NEXT</a></button>
 </div>
 <?php
 if(!empty($_SESSION["shopping_cart"])) {

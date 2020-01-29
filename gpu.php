@@ -58,7 +58,7 @@ include("social_links.html")
             <div class="container-fluid" > 
               
 			<?php
-include('connect.php');
+include('db.php');
 $status="";
 if (isset($_POST['code']) && $_POST['code']!="")
 {

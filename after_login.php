@@ -33,7 +33,7 @@ error_reporting(0);
 <?php
 
 
-include('connect.php');
+include('db.php');
 $status="";
 if (isset($_POST['code']) && $_POST['code']!="")
 {

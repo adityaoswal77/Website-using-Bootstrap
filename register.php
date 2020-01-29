@@ -7,11 +7,8 @@ if(isset($_SESSION["uid"]))
 else{
     //header("location:login.php");
 }
-include("./connect.php");
-?>
-<?php
 error_reporting(0);
-include ('./connect.php')
+include ('./db.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,9 +38,9 @@ include ('./connect.php')
           <div class="col-lg-2" style="background-color: #2d3e4e;" >
                             <!-- sidebar -->
                     <!-- calling sidebar here -->
-                    <?php
-                    include("");
-                    ?>
+        <?php
+        include("sidebar_home.html")
+        ?>
           </div>
 
         <div class="col-lg-10">

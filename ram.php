@@ -1,13 +1,12 @@
 <?php
 session_start();
 if(isset($_SESSION['uid'])){
-	header('location:after_login.php');
+	//header('location:after_login.php');
 }
 else{
 	header('location:login.php');
 }
 error_reporting(0);
-?>
 ?>
 <head>
   	<title>ram</title>
@@ -59,7 +58,7 @@ include("social_links.html")
             <div class="container-fluid" > 
               
 			<?php
-include('connect.php');
+include('db.php');
 $status="";
 if (isset($_POST['code']) && $_POST['code']!="")
 {

@@ -5,7 +5,7 @@ if(isset($_SESSION["uid"]))
     header("location:index.php");
 }
 
-include("./connect.php");
+include("./db.php");
 error_reporting(0);
 ?>
 <!doctype html>

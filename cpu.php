@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION['uid'])){
-	header('location:after_login.php');
+	//header('location:after_login.php');
 }
 else{
 	header('location:login.php');

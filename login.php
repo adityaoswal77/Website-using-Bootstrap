@@ -53,7 +53,6 @@ else{
 <center>
 <div class="box">
     <h1>Login</h1>
-    <h1>Login</h1>
         <form name="Login"  action="login.php" onsubmit="return validate(this) " method="Post">
     <div class="textbox">
         <input type="Email" class="txt" placeholder="Email" name="mail" value="" required>
@@ -152,7 +151,7 @@ return true;
 </body>
 </html>
 <?php
-include("connect.php");
+include("db.php");
 if (isset($_POST["login"]))
 {
     $username=$_POST["mail"];
@@ -164,7 +163,7 @@ if (isset($_POST["login"]))
     $run = mysqli_query($conn,$query);
 
     
-    //$data= mysqli_fetch_assoc($run);
+    $data= mysqli_fetch_assoc($run);
     $row = mysqli_num_rows($run);
 
     if($row<1)
