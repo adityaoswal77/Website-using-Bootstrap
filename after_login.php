@@ -33,7 +33,7 @@ error_reporting(0);
 <?php
 
 
-include('db.php');
+include('connect.php');
 $status="";
 if (isset($_POST['code']) && $_POST['code']!="")
 {
@@ -123,11 +123,7 @@ if (isset($_POST['code']) && $_POST['code']!="")
               <a href="#" class="social-icon-link inline-block"><img src="img/social-08-white.svg" width="17" alt=""></a>
               </div>
           
-          </div>
-            <div class="footer">
-
-            </div>
-        
+            </div>       
       </div>
           
         
