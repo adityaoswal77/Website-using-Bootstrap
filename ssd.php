@@ -1,13 +1,4 @@
-<?php
-session_start();
-if(isset($_SESSION['uid'])){
-	//header('location:after_login.php');
-}
-else{
-	header('location:login.php');
-}
-error_reporting(0);
-?>
+
 <head>
   	<title>ssd</title>
     <meta charset="utf-8">
